@@ -33,7 +33,6 @@
             <div class="col-12">
                 <h4>Layanan Kami</h4>
             </div>
-
         </div>
         <div class="row layananimg row-cols-3 row-gap-3 mt-4">
             <div class="col">
@@ -64,7 +63,6 @@
             <div class="col-12">
                 <h4>MITRA KAMI</h4>
             </div>
-
         </div>
         <div class="row layananimg align-items-center row-cols-4 row-gap-3 mt-4">
             <div class="col">
@@ -91,12 +89,11 @@
                 <p class="text-white">Konsultasi seputar kuliah / bekerja di Luar Negeri</p>
             </div>
             <div class="col-6 d-flex justify-content-center align-items-center align-content-center">
-                <button type="button" class="btn btn-primary rounded-pill">MULAI KONSULTASI<i class="bi bi-chevron-down p-4"></i></button>
+                <button type="button" class="btn btn-primary rounded-pill">MULAI KONSULTASI<i class ="bi bi-chevron-down p-4"></i></button>
             </div>
         </div>
     </div>
 </section>
-
 
 <section id="artikel">
     <div class="container text-center mt-4 ">
@@ -141,6 +138,33 @@
             <a href="#" class="btn btn-gradient px-4 py-2 rounded-pill">LOKASI KAMI</a>
             <a href="#" class="btn btn-outline-gradient px-4 py-2 rounded-pill">KIRIM PESAN</a>
         </div>
+    </div>
+</section>
+
+<section id="contac">
+    <div class="container">
+        <h2 class="mb-3">HUBUNGI KAMI</h2>
+        @if(session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
+        <form action="{{ route('contact.store') }}" method="POST">
+            @csrf
+            <div class="mb-3">
+                <label for="name" class="form-label">Nama</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="mb-3">
+                <label for="message" class="form-label">Pesan</label>
+                <textarea class="form-control" id="message" name="message" rows="3" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Kirim</button>
+        </form>
     </div>
 </section>
 @endsection
